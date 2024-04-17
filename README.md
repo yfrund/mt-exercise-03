@@ -31,14 +31,20 @@ Download and preprocess data:
 
     ./scripts/download_data.sh
 
+Current version of the script shows how to obtain *The Art of Perfumery, and Methods of Obtaining the Odors of Plants* from Project Gutenberg.
+
 Train a model:
 
     ./scripts/train.sh
 
 The training process can be interrupted at any time, and the best checkpoint will always be saved.
 
+*To adapt dropout rate, change the --dropout argument (0 = no dropout).*
+
+*Model training will also generate 3 log files (default destination: ./logs) with perplexity values: training, validation and test.*
+
 Generate (sample) some text from a trained model with:
 
     ./scripts/generate.sh
 
-
+Current version of the script generates text based on *The Art of Perfumery, and Methods of Obtaining the Odors of Plants*.
