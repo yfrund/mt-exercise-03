@@ -45,12 +45,18 @@ def tables(perplexities, dropout, type):
         dropout: list of dropout values
         type: string specifying perplexity type: training or validation
     """
-    data = {
-        type.capitalize()+' perplexity': ['Epoch '+str(i) for i in range(1,41)]
-    }
+    if type == 'training' or type == 'validation':
+        data = {
+            type.capitalize()+' perplexity': ['Epoch '+str(i) for i in range(1,41)]
+        }
+    else:
+        data = {
+            type.capitalize()+' perplexity': 'Final'
+        }
 
     for item, drop in zip(perplexities, dropout):
         data['Dropout '+drop] = item
+
     df = pd.DataFrame(data)
 
     plt.figure()
@@ -63,6 +69,7 @@ def tables(perplexities, dropout, type):
 def main():
     dropout0_tr, dropout01_tr, dropout03_tr, dropout05_tr, dropout07_tr, dropout09_tr = get_perplexities('models/logs/model0/train.txt'), get_perplexities('models/logs/model01/train.txt'), get_perplexities('models/logs/model03/train.txt'), get_perplexities('models/logs/model05/train.txt'), get_perplexities('models/logs/model07/train.txt'), get_perplexities('models/logs/model09/train.txt')
     dropout0_val, dropout01_val, dropout03_val, dropout05_val, dropout07_val, dropout09_val = get_perplexities('models/logs/model0/valid.txt'), get_perplexities('models/logs/model01/valid.txt'), get_perplexities('models/logs/model03/valid.txt'), get_perplexities('models/logs/model05/valid.txt'), get_perplexities('models/logs/model07/valid.txt'), get_perplexities('models/logs/model09/valid.txt')
+    dropout0_test, dropout01_test, dropout03_test, dropout05_test, dropout07_test, dropout09_test = get_perplexities('models/logs/model0/test.txt'), get_perplexities('models/logs/model01/test.txt'), get_perplexities('models/logs/model03/test.txt'), get_perplexities('models/logs/model05/test.txt'), get_perplexities('models/logs/model07/test.txt'), get_perplexities('models/logs/model09/test.txt')
 
     line_chart([dropout0_tr, dropout01_tr, dropout03_tr, dropout05_tr, dropout07_tr, dropout09_tr],
                ['0','0.1','0.3','0.5', '0.7', '0.9'], 'training')
@@ -73,6 +80,8 @@ def main():
                ['0', '0.1', '0.3', '0.5', '0.7', '0.9'], 'training')
     tables([dropout0_val, dropout01_val, dropout03_val, dropout05_val, dropout07_val, dropout09_val],
                ['0', '0.1', '0.3', '0.5', '0.7', '0.9'], 'validation')
+    tables([dropout0_test, dropout01_test, dropout03_test, dropout05_test, dropout07_test, dropout09_test],
+           ['0', '0.1', '0.3', '0.5', '0.7', '0.9'], 'testing')
 
 if __name__ == '__main__':
     main()
