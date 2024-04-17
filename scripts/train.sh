@@ -15,11 +15,12 @@ device=""
 SECONDS=0
 
 (cd $tools/pytorch-examples/word_language_model &&
-    CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python main.py --data $data/grimm \
+    CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python main.py --data $data/art_of_perfumery \
         --epochs 40 \
         --log-interval 100 \
-        --emsize 200 --nhid 200 --dropout 0.5 --tied \
-        --save $models/model.pt
+        --emsize 250 --nhid 250 --dropout 0.9 --tied \
+        --save $models/model09.pt \
+	--logfiles $models/logs/model09
 )
 
 echo "time taken:"
