@@ -43,7 +43,7 @@ def tables(perplexities, dropout, type):
     Args:
         perplexities: list of lists of perplexity values
         dropout: list of dropout values
-        type: string specifying perplexity type: training or validation
+        type: string specifying perplexity type: training, validation or testing
     """
     if type == 'training' or type == 'validation':
         data = {
