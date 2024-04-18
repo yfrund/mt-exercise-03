@@ -51,15 +51,33 @@ Current version of the script generates text based on *The Art of Perfumery, and
 
 Train multiple models with different parameter settings:
 
- - activate virtual environment with Pytorch and sacremoses installed;
+ - activate virtual environment with Pytorch and sacremoses installed:
+
+    source venvs/torch3/bin/activate
 
  - edit and run to download and preprocess your own data:
     
     ./scripts/download_data.sh
 
+    to edit:
+	
+	edit new directory name;
+
+	paste link to own dataset - raw txt;
+
+	move file to new directory;
+
+	edit paths for preprocessing, tokenization and to split data into subsets.
+
   - edit and run to train models, save them and training log files:
 
     ./scripts/train.sh
+
+    to edit:
+
+	edit path to own data;
+
+	*optional: set own parameters: num of epochs, log-interval, emsize, nhid, dropout, and paths to save model and logfiles
 
   - run to visualise training and validation perplexities as line charts, and create tables for training, validation and testing perplexities:
 
@@ -68,3 +86,11 @@ Train multiple models with different parameter settings:
   - edit and run to create text samples with data and model of interest:
 
     ./scripts/generate.sh 
+
+    to edit:
+
+	set --data to your own data directory;
+
+	set --checkpoint to your own model;
+
+	*optional: set own parameters: words to generate and outf - directory to save sample text.
