@@ -1,0 +1,1 @@
+/mnt/c/Users/Yuliia/Desktop/Y3S6/machine_translation/mt-2024-ex03/mt-exercise-03/tools/pytorch-examples/word_language_model/data/wikitext-2/train.txt
