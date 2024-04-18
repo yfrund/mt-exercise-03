@@ -48,3 +48,23 @@ Generate (sample) some text from a trained model with:
     ./scripts/generate.sh
 
 Current version of the script generates text based on *The Art of Perfumery, and Methods of Obtaining the Odors of Plants*.
+
+Train multiple models with different parameter settings:
+
+ - activate virtual environment with Pytorch and sacremoses installed;
+
+ - edit and run to download and preprocess your own data:
+    
+    ./scripts/download_data.sh
+
+  - edit and run to train models, save them and training log files:
+
+    ./scripts/train.sh
+
+  - run to visualise training and validation perplexities as line charts, and create tables for training, validation and testing perplexities:
+
+    visualise.py
+
+  - edit and run to create text samples with data and model of interest:
+
+    ./scripts/generate.sh 
