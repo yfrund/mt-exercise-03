@@ -29,11 +29,11 @@ mv pg16378.txt $data/art_of_perfumery/raw/perfume.txt
 
 # preprocess slightly
 
-cat $data/art_of_perfumery/raw/perfume.txt | python $base/scripts/preprocess_raw.py > $data/art_of_perfumery/raw/perfume.cleaned.txt
+cat $data/art_of_perfumery/raw/perfume.txt | python3 $base/scripts/preprocess_raw.py > $data/art_of_perfumery/raw/perfume.cleaned.txt
 
 # tokenize, fix vocabulary upper bound
 
-cat $data/art_of_perfumery/raw/perfume.cleaned.txt | python $base/scripts/preprocess.py --vocab-size 5000 --tokenize --lang "en" --sent-tokenize > \
+cat $data/art_of_perfumery/raw/perfume.cleaned.txt | python3 $base/scripts/preprocess.py --vocab-size 5000 --tokenize --lang "en" --sent-tokenize > \
     $data/art_of_perfumery/raw/perfume.preprocessed.txt
 
 # split into train, valid and test
